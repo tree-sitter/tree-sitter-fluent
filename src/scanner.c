@@ -3,6 +3,7 @@
 
 enum TokenType {
   TERMINATOR,
+  LEADING_DOT,
 };
 
 void *tree_sitter_fluent_external_scanner_create() { return NULL; }
@@ -20,12 +21,26 @@ bool tree_sitter_fluent_external_scanner_scan(
     lexer->advance(lexer, true);
   }
 
-  if (valid_symbols[TERMINATOR]) {
+  if (lexer->lookahead == 0) {
     lexer->result_symbol = TERMINATOR;
-    if (lexer->lookahead == 0) return true;
-    if (lexer->lookahead == '\n') {
+    return true;
+  }
+
+  if (lexer->lookahead == '\n') {
+    lexer->advance(lexer, true);
+    if (lexer->lookahead != ' ' && lexer->lookahead != '\t') {
+      lexer->result_symbol = TERMINATOR;
+      return true;
+    }
+
+    while (lexer->lookahead == ' ' || lexer->lookahead == '\t') {
+      lexer->advance(lexer, true);
+    }
+
+    if (valid_symbols[LEADING_DOT] && lexer->lookahead == '.') {
       lexer->advance(lexer, false);
-      return lexer->lookahead != ' ' && lexer->lookahead != '\t';
+      lexer->result_symbol = LEADING_DOT;
+      return true;
     }
   }
 

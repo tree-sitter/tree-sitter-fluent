@@ -38,6 +38,13 @@
           "name": "value"
         },
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute"
+          }
+        },
+        {
           "type": "SYMBOL",
           "name": "_terminator"
         }
@@ -57,6 +64,13 @@
         {
           "type": "SYMBOL",
           "name": "value"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute"
+          }
         },
         {
           "type": "SYMBOL",
@@ -164,6 +178,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "attribute_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "variant_expression"
         }
       ]
@@ -172,7 +190,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_leading_dot"
+          },
+          "named": false,
           "value": "."
         },
         {
@@ -380,6 +403,37 @@
         }
       ]
     },
+    "attribute_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              "named": true,
+              "value": "message_identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "term_identifier"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
     "selector": {
       "type": "SEQ",
       "members": [
@@ -481,6 +535,10 @@
     {
       "type": "SYMBOL",
       "name": "_terminator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_leading_dot"
     }
   ],
   "inline": []

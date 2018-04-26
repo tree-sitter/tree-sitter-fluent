@@ -160,3 +160,53 @@ about = O { -brand-name[locative] }
     (value (placeable (variant_expression
       (term_identifier)
       (facet_identifier))))))
+
+==========================
+Attributes
+==========================
+
+login-input = Predefined value
+    .placeholder = example@email.com
+    .aria-label = Login input value
+    .title = Type your login email
+
+---
+
+(translation_file
+  (message
+    (message_identifier)
+    (value)
+    (attribute (identifier) (value))
+    (attribute (identifier) (value))
+    (attribute (identifier) (value))))
+
+===================================
+Terms and attributes
+===============================
+
+-brand-name = Aurora
+    .gender = feminine
+
+has-updated =
+    { -brand-name.gender ->
+        [masculine] { -brand-name} został zaktualizowany.
+        [feminine] { -brand-name } została zaktualizowana.
+       *[other] Program { -brand-name } został zaktualizowany.
+    }
+
+---
+
+(translation_file
+  (term
+    (term_identifier)
+    (value)
+    (attribute (identifier) (value)))
+  (message
+    (message_identifier)
+    (value (placeable
+      (select_expression
+        (attribute_expression (term_identifier) (identifier))
+        (selector (facet_identifier) (value (placeable (term_identifier))))
+        (selector (facet_identifier) (value (placeable (term_identifier))))
+        (default_selector (facet_identifier) (value (placeable (term_identifier)))))))))
+        

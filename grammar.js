@@ -7,7 +7,8 @@ module.exports = grammar({
   ],
 
   externals: $ => [
-    $._terminator
+    $._terminator,
+    $._leading_dot,
   ],
 
   rules: {
@@ -20,6 +21,7 @@ module.exports = grammar({
       alias($.identifier, $.message_identifier),
       '=',
       $.value,
+      repeat($.attribute),
       $._terminator
     ),
 
@@ -27,6 +29,7 @@ module.exports = grammar({
       $.term_identifier,
       '=',
       $.value,
+      repeat($.attribute),
       $._terminator
     ),
 
@@ -55,11 +58,12 @@ module.exports = grammar({
       $.call_expression,
       $.variable_expression,
       $.select_expression,
+      $.attribute_expression,
       $.variant_expression
     ),
 
     attribute: $ => seq(
-      '.',
+      alias($._leading_dot, '.'),
       $.identifier,
       '=',
       $.value
@@ -100,6 +104,15 @@ module.exports = grammar({
         $.number
       ),
       ']'
+    ),
+
+    attribute_expression: $ => seq(
+      choice(
+        alias($.identifier, $.message_identifier),
+        $.term_identifier
+      ),
+      '.',
+      $.identifier
     ),
 
     selector: $ => seq(
