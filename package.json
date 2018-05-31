@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-rust",
+  "name": "tree-sitter-fluent",
   "version": "0.11.0",
   "description": "Fluent grammar for tree-sitter",
   "main": "index.js",
