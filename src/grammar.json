@@ -531,6 +531,7 @@
     }
   ],
   "conflicts": [],
+  "precedences": [],
   "externals": [
     {
       "type": "SYMBOL",
@@ -541,5 +542,7 @@
       "name": "_leading_dot"
     }
   ],
-  "inline": []
+  "inline": [],
+  "supertypes": []
 }
+
