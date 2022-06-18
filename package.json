@@ -2,7 +2,7 @@
   "name": "tree-sitter-fluent",
   "version": "0.12.0",
   "description": "Fluent grammar for tree-sitter",
-  "main": "index.js",
+  "main": "bindings/node",
   "keywords": [
     "parser",
     "fluent"
