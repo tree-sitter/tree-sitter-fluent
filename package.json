@@ -2,7 +2,7 @@
   "name": "tree-sitter-fluent",
   "version": "0.12.0",
   "description": "Fluent grammar for tree-sitter",
-  "main": "index.js",
+  "main": "bindings/node",
   "keywords": [
     "parser",
     "fluent"
@@ -10,13 +10,15 @@
   "author": "Max Brunsfeld <maxbrunsfeld@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.10.0"
+    "nan": "^2.20.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.12.7"
+    "eslint": "8.35.0",
+    "tree-sitter-cli": "^0.22.6"
   },
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "build-test": "tree-sitter generate && node-gyp build"
   }
 }
