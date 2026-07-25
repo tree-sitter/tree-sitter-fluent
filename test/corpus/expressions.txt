@@ -1,0 +1,76 @@
+=========================================
+Variable reference
+=========================================
+msg = { $count }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (variable_reference
+          (identifier))))))
+
+=========================================
+Message reference
+=========================================
+msg = { greeting }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (message_reference
+          (identifier))))))
+
+=========================================
+Message reference with attribute
+=========================================
+msg = { greeting.label }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (message_reference
+          (identifier)
+          (identifier))))))
+
+=========================================
+Term reference
+=========================================
+msg = { -brand }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (term_reference
+          (identifier))))))
+
+=========================================
+Number literal
+=========================================
+msg = { 42 }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (number_literal)))))
+
+=========================================
+Negative number literal
+=========================================
+msg = { -3.14 }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (number_literal)))))

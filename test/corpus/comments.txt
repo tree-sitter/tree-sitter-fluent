@@ -1,0 +1,64 @@
+=========================================
+Single-hash comment
+=========================================
+# a standalone comment
+---
+(resource
+  (comment))
+
+=========================================
+Bare single-hash
+=========================================
+#
+---
+(resource
+  (comment))
+
+=========================================
+Group comment (##)
+=========================================
+## Header
+---
+(resource
+  (group_comment))
+
+=========================================
+Resource comment (###)
+=========================================
+### Brand Info
+---
+(resource
+  (resource_comment))
+
+=========================================
+Longest-match: ### wins over ## and #
+=========================================
+### triple
+## double
+# single
+---
+(resource
+  (resource_comment)
+  (group_comment)
+  (comment))
+
+=========================================
+Comment with trailing content on line
+=========================================
+# Hello, World!
+---
+(resource
+  (comment))
+
+=========================================
+Comments interspersed with messages
+=========================================
+# greet the user
+hello = Hello
+---
+(resource
+  (comment)
+  (message
+    (identifier)
+    (pattern
+      (text))))

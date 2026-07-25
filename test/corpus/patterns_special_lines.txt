@@ -1,0 +1,45 @@
+=========================================
+Indented dot line is an attribute not text
+=========================================
+key = Value
+    .attr = Attribute value
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))
+    (attribute
+      (identifier)
+      (pattern
+        (text)))))
+
+=========================================
+Indented bracket line is a variant not text (inside select)
+=========================================
+key = { $x ->
+    [one] One
+   *[other] Other
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))
+            (default_variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))))))))

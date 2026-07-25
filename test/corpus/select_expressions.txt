@@ -1,0 +1,88 @@
+=========================================
+Select expression with default variant
+=========================================
+count = { $count ->
+    [one] one
+   *[other] other
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))
+            (default_variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))))))))
+
+=========================================
+Select with function selector
+=========================================
+n = { NUMBER($n) ->
+   *[1] one
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (function_reference
+            (function_identifier)
+            (call_arguments
+              (argument_list
+                (argument
+                  (variable_reference
+                    (identifier))))))
+          (variant_list
+            (default_variant
+              (variant_key
+                (number_literal))
+              (pattern
+                (text)))))))))
+
+=========================================
+Select with blank lines between variants and before close
+=========================================
+count = { $count ->
+
+    [one] one
+
+   *[other] other
+
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))
+            (default_variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))))))))

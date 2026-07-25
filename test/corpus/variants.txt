@@ -1,0 +1,57 @@
+=========================================
+Identifier variant keys
+=========================================
+count = { $x ->
+    [one] one
+   *[other] other
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))
+            (default_variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))))))))
+
+=========================================
+Number variant keys
+=========================================
+n = { $x ->
+    [1] one
+   *[3.14] pi
+}
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (variant
+              (variant_key
+                (number_literal))
+              (pattern
+                (text)))
+            (default_variant
+              (variant_key
+                (number_literal))
+              (pattern
+                (text)))))))))

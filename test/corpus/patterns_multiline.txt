@@ -1,0 +1,41 @@
+=========================================
+Multiline text value
+=========================================
+about = About Our Software
+    Loki is a simple micro-blogging
+    app written in HTML5.
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Value starts on next line
+=========================================
+description =
+    A multiline value
+    starting on the next line.
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Blank lines inside pattern are preserved
+=========================================
+key = Line one
+
+    Line two after a blank
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))

@@ -1,0 +1,29 @@
+=========================================
+Continuation requires indentation
+=========================================
+key = First line
+    Second line indented
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Non-indented line ends the pattern
+=========================================
+key = First
+second = separate message
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text)))
+  (message
+    (identifier)
+    (pattern
+      (text))))

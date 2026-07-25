@@ -1,0 +1,51 @@
+=========================================
+Plain string literal
+=========================================
+msg = { "hello" }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (string_literal)))))
+
+=========================================
+Escaped backslash and quote
+=========================================
+msg = {" \\b\"c" }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (string_literal)))))
+
+=========================================
+Four-hex unicode escape
+=========================================
+msg = {" \u0041" }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (string_literal)))))
+
+=========================================
+Six-hex unicode escape
+=========================================
+msg = {" \U0001F600" }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (string_literal)))))

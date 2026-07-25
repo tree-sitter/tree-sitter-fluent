@@ -1,0 +1,65 @@
+=========================================
+Simple message
+=========================================
+hello = Hello, World!
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Equals with no surrounding spaces
+=========================================
+greeting=Hi
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Multiple messages separated by newlines
+=========================================
+hello = Hello
+bye = Goodbye
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text)))
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Message with trailing newline only
+=========================================
+only = one
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Blank lines between entries
+=========================================
+a = first
+
+b = second
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text)))
+  (message
+    (identifier)
+    (pattern
+      (text))))

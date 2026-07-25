@@ -1,0 +1,68 @@
+=========================================
+Empty call arguments
+=========================================
+msg = { FUNC() }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (function_reference
+          (function_identifier)
+          (call_arguments))))))
+
+=========================================
+Positional argument
+=========================================
+msg = { FUNC($x) }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (function_reference
+          (function_identifier)
+          (call_arguments
+            (argument_list
+              (argument
+                (variable_reference
+                  (identifier))))))))))
+
+=========================================
+Named argument
+=========================================
+msg = { FUNC(name: "x") }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (function_reference
+          (function_identifier)
+          (call_arguments
+            (argument_list
+              (argument
+                (named_argument
+                  (identifier)
+                  (string_literal))))))))))
+
+=========================================
+Trailing comma
+=========================================
+msg = { FUNC($a,) }
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (function_reference
+          (function_identifier)
+          (call_arguments
+            (argument_list
+              (argument
+                (variable_reference
+                  (identifier))))))))))

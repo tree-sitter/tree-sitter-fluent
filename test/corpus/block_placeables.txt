@@ -1,0 +1,61 @@
+=========================================
+Block placeable as the value
+=========================================
+key =
+    { $x }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (variable_reference
+          (identifier))))))
+
+=========================================
+Block placeable after text
+=========================================
+key = Hello
+    { $x }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text)
+      (placeable
+        (variable_reference
+          (identifier))))))
+
+=========================================
+Block placeable with blank lines between every token
+=========================================
+key =
+
+  {
+
+      $sel
+
+      ->
+
+         *[one] One
+
+  }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (select_expression
+          (variable_reference
+            (identifier))
+          (variant_list
+            (default_variant
+              (variant_key
+                (identifier))
+              (pattern
+                (text)))))))))

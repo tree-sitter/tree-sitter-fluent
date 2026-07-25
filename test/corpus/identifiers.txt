@@ -1,0 +1,43 @@
+=========================================
+Lowercase identifier
+=========================================
+hello = x
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Mixed case and digits
+=========================================
+msg2 = x
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Dashes and underscores
+=========================================
+my-msg_key = x
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Uppercase start is a valid identifier
+=========================================
+Brand = x
+---
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))))

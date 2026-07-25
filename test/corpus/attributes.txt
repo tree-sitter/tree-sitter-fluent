@@ -1,0 +1,68 @@
+=========================================
+Message with one attribute and no value
+=========================================
+login-banner =
+    .label = Sign in
+---
+
+(resource
+  (message
+    (identifier)
+    (attribute
+      (identifier)
+      (pattern
+        (text)))))
+
+=========================================
+Message with value and attribute
+=========================================
+login = Sign in
+    .aria-label = Login button
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text))
+    (attribute
+      (identifier)
+      (pattern
+        (text)))))
+
+=========================================
+Message with multiple attributes
+=========================================
+brand =
+    .nominative = Foo
+    .genitive = Foo's
+---
+
+(resource
+  (message
+    (identifier)
+    (attribute
+      (identifier)
+      (pattern
+        (text)))
+    (attribute
+      (identifier)
+      (pattern
+        (text)))))
+
+=========================================
+Term with attribute
+=========================================
+-brand = Foo
+    .gender = masculine
+---
+
+(resource
+  (term
+    (identifier)
+    (pattern
+      (text))
+    (attribute
+      (identifier)
+      (pattern
+        (text)))))

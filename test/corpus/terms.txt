@@ -1,0 +1,68 @@
+=========================================
+Simple term
+=========================================
+-brand-name = Firefox
+---
+(resource
+  (term
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Term reference sigil is a dash
+=========================================
+-app = My App
+---
+(resource
+  (term
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Term and message coexist
+=========================================
+-brand = Thing
+use = Use it
+---
+(resource
+  (term
+    (identifier)
+    (pattern
+      (text)))
+  (message
+    (identifier)
+    (pattern
+      (text))))
+
+=========================================
+Term reference with call arguments
+=========================================
+-term = Value
+use01 = { -term(arg) }
+use02 = { -term () }
+---
+(resource
+  (term
+    (identifier)
+    (pattern
+      (text)))
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (term_reference
+          (identifier)
+          (call_arguments
+            (argument_list
+              (argument
+                (message_reference
+                  (identifier)))))))))
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (term_reference
+          (identifier)
+          (call_arguments))))))

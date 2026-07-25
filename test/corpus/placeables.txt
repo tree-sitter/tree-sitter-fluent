@@ -1,0 +1,46 @@
+=========================================
+Inline placeable in text
+=========================================
+hello = Hello { $name }!
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (text)
+      (placeable
+        (variable_reference
+          (identifier)))
+      (text))))
+
+=========================================
+Placeable-only value
+=========================================
+echo = { $value }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (variable_reference
+          (identifier))))))
+
+=========================================
+Adjacent placeables
+=========================================
+pair = { $a }{ $b }
+---
+
+(resource
+  (message
+    (identifier)
+    (pattern
+      (placeable
+        (variable_reference
+          (identifier)))
+      (placeable
+        (variable_reference
+          (identifier))))))
